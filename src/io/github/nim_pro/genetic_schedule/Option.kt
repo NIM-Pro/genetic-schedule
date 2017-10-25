@@ -1,12 +1,18 @@
 package io.github.nim_pro.genetic_schedule
 
-class NoneOptionUnwrappingException : Exception("Trying to unwrap none-option")
-
 class Option<T> {
+    class NoneOptionUnwrappingException : Exception("Trying to unwrap none-option")
+
     private var some: Boolean = false
     private var value: T? = null
-    constructor(value: T) { set(value) }
-    constructor() { clear() }
+
+    constructor(value: T) {
+        set(value)
+    }
+
+    constructor() {
+        clear()
+    }
 
     companion object {
         fun <T> some(value: T) = Option(value)
